@@ -4,14 +4,17 @@
 
 from datetime import datetime
 import time
-try:
-    import htmlentitydefs
-except ImportError:
-    # Python 3
-    from html import entities as htmlentitydefs
 import re
 import locale
-from urllib import quote
+import sys
+
+# Python 3 compatibility
+if sys.version_info >= (3, 0):
+    from html import entities as htmlentitydefs
+    from urllib.parse import quote
+else:
+    import htmlentitydefs
+    from urllib import quote
 
 
 def parse_datetime(string):
