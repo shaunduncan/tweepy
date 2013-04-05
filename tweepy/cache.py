@@ -1,6 +1,7 @@
 # Tweepy
 # Copyright 2009-2010 Joshua Roesslein
 # See LICENSE for details.
+from __future__ import print_function
 
 import time
 import datetime
@@ -155,7 +156,7 @@ class FileCache(Cache):
             self._lock_file = self._lock_file_win32
             self._unlock_file = self._unlock_file_win32
         else:
-            print 'Warning! FileCache locking not supported on this system!'
+            print('Warning! FileCache locking not supported on this system!')
             self._lock_file = self._lock_file_dummy
             self._unlock_file = self._unlock_file_dummy
 
