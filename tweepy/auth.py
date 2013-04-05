@@ -2,8 +2,13 @@
 # Copyright 2009-2010 Joshua Roesslein
 # See LICENSE for details.
 
-from urllib2 import Request, urlopen
 import base64
+import sys
+
+if sys.version_info >= (3, 0):
+    from urllib.request import Request, urlopen
+else:
+    from urllib2 import Request, urlopen
 
 from tweepy import oauth
 from tweepy.error import TweepError
