@@ -2,10 +2,15 @@
 # Copyright 2009-2010 Joshua Roesslein
 # See LICENSE for details.
 
-import httplib
 from socket import timeout
+import sys
 from threading import Thread
 from time import sleep
+
+if sys.version_info >= (3, 0):
+    import http.client as httplib
+else:
+    import httplib
 
 from tweepy.models import Status
 from tweepy.api import API

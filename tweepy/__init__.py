@@ -21,7 +21,10 @@ from tweepy.cursor import Cursor
 api = API()
 
 def debug(enable=True, level=1):
-
-    import httplib
+    import sys
+    if sys.version_info >= (3, 0):
+        import http.client as httplib
+    else:
+        import httplib
     httplib.HTTPConnection.debuglevel = level
 

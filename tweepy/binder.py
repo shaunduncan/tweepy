@@ -2,10 +2,15 @@
 # Copyright 2009-2010 Joshua Roesslein
 # See LICENSE for details.
 
-import httplib
 import urllib
 import time
 import re
+import sys
+
+if sys.version_info >= (3, 0):
+    import http.client as httplib
+else:
+    import httplib
 
 from tweepy.error import TweepError
 from tweepy.utils import convert_to_utf8_str
